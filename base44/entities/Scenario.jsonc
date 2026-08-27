@@ -1,0 +1,222 @@
+{
+  "name": "Scenario",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "time",
+        "social"
+      ],
+      "default": "time",
+      "description": "Dimension du World concern\u00e9e \u2014 m\u00eame moteur, m\u00eame cycle de vie"
+    },
+    "intent": {
+      "type": "object",
+      "description": "Commande valid\u00e9e ayant produit ce sc\u00e9nario, rejou\u00e9e \u00e0 l'identique lors de la re-simulation avant APPLY",
+      "additionalProperties": true
+    },
+    "result_type": {
+      "type": "string",
+      "enum": [
+        "NO_IMPACT",
+        "IMPACT",
+        "UNKNOWN",
+        "CONFLICT",
+        "BLOCKED"
+      ],
+      "description": "R\u00e9sultat causal d\u00e9terministe calcul\u00e9 par le moteur"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string",
+            "description": "time_block | entity_field | relation_set"
+          },
+          "block_id": {
+            "type": "string"
+          },
+          "block_label": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "target_label": {
+            "type": "string"
+          },
+          "relation_type": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "old_value": {
+            "type": "string"
+          },
+          "new_value": {
+            "type": "string"
+          },
+          "old_end": {
+            "type": "string"
+          },
+          "new_end": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "impacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_name": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string",
+            "description": "INFO | LOW | MEDIUM | HIGH | CRITICAL"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "impacts_at_creation": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "entity_name": {
+            "type": "string"
+          },
+          "level": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "snapshot_before": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "block_id": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "relation_type": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "end_time": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "snapshot_after": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "kind": {
+            "type": "string"
+          },
+          "block_id": {
+            "type": "string"
+          },
+          "target_id": {
+            "type": "string"
+          },
+          "field": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          },
+          "start_time": {
+            "type": "string"
+          },
+          "end_time": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "failure_reason": {
+      "type": "string"
+    },
+    "applied_at": {
+      "type": "string"
+    },
+    "abandoned_at": {
+      "type": "string"
+    },
+    "reverted_at": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "applied",
+        "abandoned",
+        "failed",
+        "reverted"
+      ],
+      "default": "draft"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "user",
+        "gaia"
+      ],
+      "default": "user"
+    }
+  },
+  "required": [
+    "world_id",
+    "title"
+  ]
+}

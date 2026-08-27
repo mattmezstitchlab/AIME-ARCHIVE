@@ -1,0 +1,34 @@
+{
+  "name": "SystemEvent",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": "string"
+    },
+    "event_type": {
+      "type": "string",
+      "description": "ex: WeddingCreated, ScheduleChanged, ScenarioCreated, ScenarioApplied, DecisionMade"
+    },
+    "payload": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "source": {
+      "type": "string",
+      "description": "user, gaia, chronos..."
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "critical"
+      ],
+      "default": "info"
+    }
+  },
+  "required": [
+    "world_id",
+    "event_type"
+  ]
+}

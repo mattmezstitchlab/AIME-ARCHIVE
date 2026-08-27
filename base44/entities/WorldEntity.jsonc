@@ -1,0 +1,153 @@
+{
+  "name": "WorldEntity",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "entity_type": {
+      "type": "string",
+      "enum": [
+        "vendor",
+        "person",
+        "place",
+        "moment",
+        "resource",
+        "group",
+        "table",
+        "venue",
+        "service",
+        "equipment",
+        "material",
+        "room",
+        "vehicle",
+        "food",
+        "accommodation",
+        "staff",
+        "technical_resource",
+        "event"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "description": "ex: photographe, traiteur, dj, ceremonie, famille, temoins. Pour un event : CEREMONY, COCKTAIL, DINNER..."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "proposed",
+        "confirmed",
+        "cancelled",
+        "unknown"
+      ],
+      "default": "proposed"
+    },
+    "truth_status": {
+      "type": "string",
+      "enum": [
+        "verified",
+        "inferred",
+        "proposed",
+        "unknown"
+      ],
+      "default": "proposed",
+      "description": "Fiabilit\u00e9 de l'information \u2014 ne pas confondre avec rsvp_status"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "first_name": {
+      "type": "string",
+      "description": "entity_type = person"
+    },
+    "last_name": {
+      "type": "string",
+      "description": "entity_type = person"
+    },
+    "display_name": {
+      "type": "string",
+      "description": "Nom d'affichage \u2014 repr\u00e9sentation, jamais source de v\u00e9rit\u00e9"
+    },
+    "avatar_url": {
+      "type": "string",
+      "description": "Photo r\u00e9elle ou logo. Jamais g\u00e9n\u00e9r\u00e9 pour repr\u00e9senter une personne r\u00e9elle."
+    },
+    "role": {
+      "type": "string",
+      "description": "ex: mari\u00e9e, t\u00e9moin, parent, enfant, invit\u00e9, photographe"
+    },
+    "contact": {
+      "type": "string",
+      "description": "email ou t\u00e9l\u00e9phone"
+    },
+    "rsvp_status": {
+      "type": "string",
+      "enum": [
+        "INVITED",
+        "PENDING",
+        "CONFIRMED",
+        "DECLINED",
+        "MAYBE"
+      ],
+      "description": "Participation \u2014 ne pas confondre avec truth_status"
+    },
+    "dietary": {
+      "type": "string",
+      "description": "r\u00e9gime alimentaire d\u00e9clar\u00e9"
+    },
+    "accessibility": {
+      "type": "array",
+      "description": "Besoins structur\u00e9s : NEEDS_STEP_FREE_ACCESS, NEEDS_SEATED_POSITION, NEEDS_NEAR_EXIT, NEEDS_ASSISTANCE",
+      "items": {
+        "type": "string"
+      }
+    },
+    "capacity": {
+      "type": "number",
+      "description": "table/venue/room : nombre de places"
+    },
+    "location": {
+      "type": "string",
+      "description": "table/place/venue : emplacement"
+    },
+    "capability": {
+      "type": "string",
+      "description": "Ce que la ressource sait r\u00e9ellement faire (ex: photographie, catering, transport)"
+    },
+    "capability_capacity": {
+      "type": "number",
+      "description": "Volume r\u00e9el de la capacit\u00e9 (ex: 150 couverts, 50 passagers, 1 \u00e9v\u00e9nement simultan\u00e9)"
+    },
+    "capability_unit": {
+      "type": "string",
+      "description": "Unit\u00e9 de la capacit\u00e9 (couverts, passagers, personnes, \u00e9v\u00e9nements simultan\u00e9s)"
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "AVAILABLE",
+        "UNAVAILABLE",
+        "PARTIALLY_AVAILABLE",
+        "UNKNOWN"
+      ],
+      "default": "UNKNOWN",
+      "description": "Jamais invent\u00e9e : UNKNOWN tant que l'information n'est pas d\u00e9clar\u00e9e"
+    },
+    "available_from": {
+      "type": "string",
+      "description": "Format HH:mm"
+    },
+    "available_to": {
+      "type": "string",
+      "description": "Format HH:mm"
+    }
+  },
+  "required": [
+    "world_id",
+    "name",
+    "entity_type"
+  ]
+}

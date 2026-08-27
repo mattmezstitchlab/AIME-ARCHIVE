@@ -1,0 +1,78 @@
+{
+  "name": "Constraint",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": "string"
+    },
+    "entity_id": {
+      "type": "string"
+    },
+    "target_entity_id": {
+      "type": "string",
+      "description": "Seconde entit\u00e9 d'une contrainte (sociale ou de ressource)"
+    },
+    "description": {
+      "type": "string"
+    },
+    "constraint_type": {
+      "type": "string",
+      "enum": [
+        "before",
+        "after",
+        "deadline",
+        "duration",
+        "resource",
+        "must_be_near",
+        "must_be_separated",
+        "same_table",
+        "different_table",
+        "same_group",
+        "accessibility_required",
+        "child_with_guardian",
+        "elder_near_exit",
+        "capacity",
+        "vendor_available_at",
+        "capacity_limit",
+        "resource_required",
+        "service_required",
+        "venue_capacity",
+        "equipment_required"
+      ]
+    },
+    "time_value": {
+      "type": "string",
+      "description": "Format HH:mm si contrainte temporelle"
+    },
+    "value": {
+      "type": "string",
+      "description": "Valeur non temporelle (ex: besoin d'accessibilit\u00e9 requis, capacit\u00e9 attendue)"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "important",
+        "minor"
+      ],
+      "default": "important"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "satisfied",
+        "violated",
+        "unknown",
+        "blocked"
+      ],
+      "default": "unknown",
+      "description": "Recalcul\u00e9 par le Constraint Engine \u00e0 chaque mutation du monde"
+    }
+  },
+  "required": [
+    "world_id",
+    "entity_id",
+    "description",
+    "constraint_type"
+  ]
+}

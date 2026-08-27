@@ -1,0 +1,50 @@
+{
+  "name": "AuditEvent",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": "string"
+    },
+    "actor": {
+      "type": "string"
+    },
+    "action_code": {
+      "type": "string",
+      "description": "Code normalis\u00e9 requ\u00eatable : TIME_BLOCK_UPDATED, SCENARIO_CREATED, SCENARIO_APPLIED, SCENARIO_ABANDONED, SCENARIO_FAILED, SCENARIO_REVERTED, CONSTRAINT_VIOLATED, CONSTRAINT_RESOLVED, WORLD_RECALCULATED, WORLD_SEEDED"
+    },
+    "action": {
+      "type": "string"
+    },
+    "target": {
+      "type": "string"
+    },
+    "old_value": {
+      "type": "string"
+    },
+    "new_value": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string",
+      "enum": [
+        "user",
+        "gaia",
+        "system"
+      ],
+      "default": "user"
+    },
+    "scenario_id": {
+      "type": "string"
+    },
+    "impact_count": {
+      "type": "number"
+    },
+    "justification": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "world_id",
+    "action"
+  ]
+}

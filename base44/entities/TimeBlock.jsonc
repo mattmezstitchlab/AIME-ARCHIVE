@@ -1,0 +1,55 @@
+{
+  "name": "TimeBlock",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": "string"
+    },
+    "entity_id": {
+      "type": "string",
+      "description": "WorldEntity concern\u00e9e"
+    },
+    "label": {
+      "type": "string"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Format HH:mm"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "Format HH:mm"
+    },
+    "buffer_minutes": {
+      "type": "number",
+      "default": 0
+    },
+    "block_type": {
+      "type": "string",
+      "enum": [
+        "setup",
+        "service",
+        "moment",
+        "travel",
+        "teardown"
+      ],
+      "default": "moment"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "confirmed",
+        "delayed",
+        "done"
+      ],
+      "default": "planned"
+    }
+  },
+  "required": [
+    "world_id",
+    "entity_id",
+    "label",
+    "start_time"
+  ]
+}

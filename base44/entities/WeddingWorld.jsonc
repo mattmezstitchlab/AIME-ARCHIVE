@@ -1,0 +1,40 @@
+{
+  "name": "WeddingWorld",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Nom de l'univers du mariage"
+    },
+    "wedding_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "location": {
+      "type": "string"
+    },
+    "guest_count": {
+      "type": "number"
+    },
+    "budget_total": {
+      "type": "number"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planning",
+        "live",
+        "memory"
+      ],
+      "default": "planning"
+    },
+    "health": {
+      "type": "object",
+      "description": "R\u00e9sultat du Health Engine, recalcul\u00e9 \u00e0 chaque mutation du monde",
+      "additionalProperties": true
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "name": "WorldRelation",
+  "type": "object",
+  "properties": {
+    "world_id": {
+      "type": "string"
+    },
+    "from_entity_id": {
+      "type": "string"
+    },
+    "to_entity_id": {
+      "type": "string"
+    },
+    "relation_type": {
+      "type": "string",
+      "enum": [
+        "depends_on",
+        "must_precede",
+        "provides",
+        "located_at",
+        "impacts",
+        "family",
+        "parent_of",
+        "child_of",
+        "partner_of",
+        "friend_of",
+        "colleague_of",
+        "witness_of",
+        "guardian_of",
+        "caregiver_of",
+        "plus_one_of",
+        "group_member",
+        "assigned_to",
+        "requires",
+        "requires_resource",
+        "located_in",
+        "available_at",
+        "available_during",
+        "uses",
+        "serves",
+        "supplies",
+        "operates",
+        "has_capability",
+        "requires_person",
+        "requires_vendor",
+        "requires_service",
+        "participates_in",
+        "part_of",
+        "precedes",
+        "follows"
+      ],
+      "description": "Relations structurelles (temps), sociales (people graph), de ressources et d'\u00e9v\u00e9nements (event graph). Une relation n'est pas une contrainte."
+    },
+    "description": {
+      "type": "string"
+    },
+    "strength": {
+      "type": "string",
+      "enum": [
+        "critical",
+        "important",
+        "weak"
+      ],
+      "default": "important"
+    }
+  },
+  "required": [
+    "world_id",
+    "from_entity_id",
+    "to_entity_id",
+    "relation_type"
+  ]
+}
